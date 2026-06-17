@@ -14,22 +14,22 @@ central coordinator.
 
 ## Features
 
-- UDP-based peer-to-peer communication
-- JSON message format for all protocol messages
-- Bootstrap-based network joining with `HELLO`
-- Peer discovery using `PEERS_GET` and `PEERS_LIST`
-- TTL-limited `GOSSIP` message propagation
-- Random fanout-based forwarding to reduce flooding
-- Duplicate detection with a seen-message set
-- Temporary message store for recovery requests
-- Peer liveness management with `PING` and `PONG`
-- Background removal of inactive peers
-- Hybrid push-pull recovery with `IHAVE` and `IWANT`
-- Proof-of-Work on `HELLO` messages for basic Sybil resistance
-- Threaded node execution with protected shared state
-- Simulation framework for 10, 20, and 50 node networks
-- Measurement of convergence time and message overhead
-- Plot generation for convergence and overhead analysis
+* UDP-based peer-to-peer communication
+* JSON message format for protocol messages
+* Bootstrap-based network joining with `HELLO`
+* Peer discovery using `PEERS_GET` and `PEERS_LIST`
+* TTL-limited `GOSSIP` message propagation
+* Random fanout-based forwarding to reduce flooding
+* Duplicate detection with a seen-message set
+* Temporary message store for recovery requests
+* Peer liveness management with `PING` and `PONG`
+* Background removal of inactive peers
+* Hybrid push-pull recovery with `IHAVE` and `IWANT`
+* Proof-of-Work on `HELLO` messages for basic Sybil resistance
+* Threaded node execution with protected shared state
+* Simulation framework for 10, 20, and 50 node networks
+* Measurement of convergence time and message overhead
+* Plot generation for convergence and overhead analysis
 
 ## Architecture Overview
 
@@ -60,15 +60,15 @@ through gossip forwarding and periodic recovery.
 
 Each running node maintains the following state:
 
-| State | Purpose |
-| --- | --- |
-| `node_id` | Unique identifier for the node |
-| `self_addr` | Node IP address and UDP port |
-| `peers` | Known neighboring peers and their last activity time |
-| `seen` | Message IDs that were already processed |
-| `message_store` | Temporarily stored messages for later recovery |
-| `config` | Runtime parameters such as fanout, TTL, and timeouts |
-| `stats` | Counters for sent and received messages |
+| State           | Purpose                                              |
+| --------------- | ---------------------------------------------------- |
+| `node_id`       | Unique identifier for the node                       |
+| `self_addr`     | Node IP address and UDP port                         |
+| `peers`         | Known neighboring peers and their last activity time |
+| `seen`          | Message IDs that were already processed              |
+| `message_store` | Temporarily stored messages for later recovery       |
+| `config`        | Runtime parameters such as fanout, TTL, and timeouts |
+| `stats`         | Counters for sent and received messages              |
 
 The peer list is bounded to prevent unlimited growth. Old or inactive peers are
 removed when they stop responding to liveness checks.
@@ -77,16 +77,16 @@ removed when they stop responding to liveness checks.
 
 All messages are encoded as JSON and sent over UDP.
 
-| Message | Purpose |
-| --- | --- |
-| `HELLO` | Introduces a new node to the network |
-| `PEERS_GET` | Requests a random list of known peers |
-| `PEERS_LIST` | Sends known peers to another node |
-| `GOSSIP` | Carries an application message through the network |
-| `PING` | Checks whether a peer is alive |
-| `PONG` | Confirms that a peer is alive |
-| `IHAVE` | Announces message IDs stored by a node |
-| `IWANT` | Requests a missing message from another node |
+| Message      | Purpose                                            |
+| ------------ | -------------------------------------------------- |
+| `HELLO`      | Introduces a new node to the network               |
+| `PEERS_GET`  | Requests a random list of known peers              |
+| `PEERS_LIST` | Sends known peers to another node                  |
+| `GOSSIP`     | Carries an application message through the network |
+| `PING`       | Checks whether a peer is alive                     |
+| `PONG`       | Confirms that a peer is alive                      |
+| `IHAVE`      | Announces message IDs stored by a node             |
+| `IWANT`      | Requests a missing message from another node       |
 
 ## Join Path
 
@@ -170,12 +170,12 @@ systems.
 
 Each node runs multiple tasks concurrently:
 
-- A receiver loop for incoming UDP packets
-- A message handler for parsing and processing messages
-- A liveness manager for `PING` and `PONG`
-- A recovery worker for `IHAVE` and `IWANT`
-- A discovery worker for periodic peer exchange
-- A main interactive loop for user commands
+* A receiver loop for incoming UDP packets
+* A message handler for parsing and processing messages
+* A liveness manager for `PING` and `PONG`
+* A recovery worker for `IHAVE` and `IWANT`
+* A discovery worker for periodic peer exchange
+* A main interactive loop for user commands
 
 Shared structures such as the peer list, seen-message set, message store, and
 statistics are protected with locks to avoid inconsistent updates between
@@ -183,9 +183,9 @@ threads.
 
 ## Requirements
 
-- Python 3.7 or newer
-- Standard Python library for the core implementation
-- Optional plotting packages from `requirements.txt`
+* Python 3.7 or newer
+* Standard Python library for the core implementation
+* Optional plotting packages from `requirements.txt`
 
 Install optional plotting dependencies with:
 
@@ -193,20 +193,51 @@ Install optional plotting dependencies with:
 pip install -r requirements.txt
 ```
 
+## Repository Structure
+
+```text
+.
+├── README.md
+├── requirements.txt
+├── .gitignore
+│
+├── src/
+│   └── node.py
+│
+├── scripts/
+│   ├── simulate.py
+│   ├── plot_simulation_results.py
+│   └── test.py
+│
+├── results/
+│   ├── simulation_results.json
+│   ├── simulation.txt
+│   └── plots/
+│       ├── convergence.png
+│       ├── convergence_20_by_fanout.png
+│       ├── convergence_20_by_ttl.png
+│       ├── overhead.png
+│       ├── overhead_20_by_fanout.png
+│       └── overhead_20_by_ttl.png
+│
+└── docs/
+    └── report.pdf
+```
+
 ## Running Nodes
 
 Start the first node as the seed node:
 
 ```sh
-python3 node.py --port 8080
+python3 src/node.py --port 8080
 ```
 
 Start additional nodes with the seed node as bootstrap:
 
 ```sh
-python3 node.py --port 8081 --bootstrap 127.0.0.1:8080
-python3 node.py --port 8082 --bootstrap 127.0.0.1:8080
-python3 node.py --port 8083 --bootstrap 127.0.0.1:8080
+python3 src/node.py --port 8081 --bootstrap 127.0.0.1:8080
+python3 src/node.py --port 8082 --bootstrap 127.0.0.1:8080
+python3 src/node.py --port 8083 --bootstrap 127.0.0.1:8080
 ```
 
 Send a message from any running node:
@@ -217,33 +248,33 @@ gossip Hello from the gossip network
 
 ## Interactive Commands
 
-| Command | Description |
-| --- | --- |
+| Command            | Description                        |
+| ------------------ | ---------------------------------- |
 | `gossip <message>` | Sends a new message to the network |
-| `peers` | Shows the current known peer list |
-| `stats` | Shows local message statistics |
-| `quit` | Stops the node |
+| `peers`            | Shows the current known peer list  |
+| `stats`            | Shows local message statistics     |
+| `quit`             | Stops the node                     |
 
 ## Configuration
 
 The node supports runtime configuration through command-line arguments.
 
-| Option | Description |
-| --- | --- |
-| `--port` | UDP port used by the node |
-| `--bootstrap` | Bootstrap peer address in `ip:port` format |
-| `--fanout` | Number of peers selected for each gossip forward |
-| `--peer_limit` | Maximum number of peers stored by the node |
-| `--ping_interval` | Interval between liveness checks |
-| `--peer_timeout` | Time before an inactive peer is removed |
-| `--ttl` | Initial TTL for gossip messages |
-| `--pow_k` | Proof-of-Work difficulty |
-| `--push_pull_interval` | Interval for recovery announcements |
+| Option                 | Description                                      |
+| ---------------------- | ------------------------------------------------ |
+| `--port`               | UDP port used by the node                        |
+| `--bootstrap`          | Bootstrap peer address in `ip:port` format       |
+| `--fanout`             | Number of peers selected for each gossip forward |
+| `--peer_limit`         | Maximum number of peers stored by the node       |
+| `--ping_interval`      | Interval between liveness checks                 |
+| `--peer_timeout`       | Time before an inactive peer is removed          |
+| `--ttl`                | Initial TTL for gossip messages                  |
+| `--pow_k`              | Proof-of-Work difficulty                         |
+| `--push_pull_interval` | Interval for recovery announcements              |
 
 Example:
 
 ```sh
-python3 node.py \
+python3 src/node.py \
   --port 8081 \
   --bootstrap 127.0.0.1:8080 \
   --fanout 4 \
@@ -270,23 +301,23 @@ The simulator:
 Run the simulation with:
 
 ```sh
-python3 simulate.py
+python3 scripts/simulate.py
 ```
 
 The simulation results are saved in:
 
 ```text
-simulation_results.json
+results/simulation_results.json
 ```
 
 ## Evaluation Metrics
 
-| Metric | Meaning |
-| --- | --- |
-| Convergence time | Time until 95% of nodes receive the message |
-| Message overhead | Total number of protocol messages exchanged |
-| Nodes reached | Number of nodes that received the test message |
-| Mean and standard deviation | Stability of results across repeated runs |
+| Metric                      | Meaning                                        |
+| --------------------------- | ---------------------------------------------- |
+| Convergence time            | Time until 95% of nodes receive the message    |
+| Message overhead            | Total number of protocol messages exchanged    |
+| Nodes reached               | Number of nodes that received the test message |
+| Mean and standard deviation | Stability of results across repeated runs      |
 
 The experiments evaluate networks with 10, 20, and 50 nodes. Additional runs
 vary fanout and TTL to study how protocol parameters affect speed and overhead.
@@ -296,19 +327,40 @@ vary fanout and TTL to study how protocol parameters affect speed and overhead.
 Generate plots from the simulation results with:
 
 ```sh
-python3 plot_simulation_results.py
+python3 scripts/plot_simulation_results.py
 ```
 
-The project includes plots such as:
+The generated plots are stored in:
 
-| File | Purpose |
-| --- | --- |
-| `convergence.png` | Convergence time by network size |
-| `overhead.png` | Message overhead by network size |
-| `convergence_20_by_fanout.png` | Effect of fanout on convergence for 20 nodes |
-| `convergence_20_by_ttl.png` | Effect of TTL on convergence for 20 nodes |
-| `overhead_20_by_fanout.png` | Effect of fanout on overhead for 20 nodes |
-| `overhead_20_by_ttl.png` | Effect of TTL on overhead for 20 nodes |
+```text
+results/plots/
+```
+
+## Results Plots
+
+### Convergence by Network Size
+
+![Convergence by network size](results/plots/convergence.png)
+
+### Message Overhead by Network Size
+
+![Message overhead by network size](results/plots/overhead.png)
+
+### Convergence by Fanout
+
+![Convergence by fanout](results/plots/convergence_20_by_fanout.png)
+
+### Convergence by TTL
+
+![Convergence by TTL](results/plots/convergence_20_by_ttl.png)
+
+### Overhead by Fanout
+
+![Overhead by fanout](results/plots/overhead_20_by_fanout.png)
+
+### Overhead by TTL
+
+![Overhead by TTL](results/plots/overhead_20_by_ttl.png)
 
 ## Results Summary
 
@@ -317,13 +369,13 @@ messages without failed runs in the tested local environment.
 
 The main observations are:
 
-- Larger networks require more time to converge.
-- Message overhead increases as the number of nodes grows.
-- Very low fanout can slow down propagation.
-- Increasing fanout can improve speed, but also increases traffic.
-- Increasing TTL is useful only up to a practical threshold.
-- After a certain point, larger TTL values add little benefit.
-- Push-pull recovery improves eventual delivery when the initial propagation
+* Larger networks require more time to converge.
+* Message overhead increases as the number of nodes grows.
+* Very low fanout can slow down propagation.
+* Increasing fanout can improve speed, but also increases traffic.
+* Increasing TTL is useful only up to a practical threshold.
+* After a certain point, larger TTL values add little benefit.
+* Push-pull recovery improves eventual delivery when the initial propagation
   does not reach every node.
 
 The results highlight the main gossip trade-off: faster dissemination usually
@@ -334,65 +386,73 @@ requires more redundant communication.
 Run the test script with:
 
 ```sh
-python3 test.py
+python3 scripts/test.py
 ```
 
 The tests validate core behavior such as:
 
-- Node startup
-- Bootstrap joining
-- Peer discovery
-- Gossip propagation
-- Duplicate message handling
-- PING/PONG liveness checking
-- Configurable parameters
-- Multi-node propagation
+* Node startup
+* Bootstrap joining
+* Peer discovery
+* Gossip propagation
+* Duplicate message handling
+* PING/PONG liveness checking
+* Configurable parameters
+* Multi-node propagation
 
-## Repository Structure
+## Report
 
-| Path | Purpose |
-| --- | --- |
-| `node.py` | Main peer implementation, UDP socket handling, protocol logic, and CLI |
-| `simulate.py` | Starts local node processes and measures convergence and overhead |
-| `plot_simulation_results.py` | Generates plots from saved simulation results |
-| `test.py` | Test script for validating protocol behavior |
-| `requirements.txt` | Optional dependencies for plotting and analysis |
-| `simulation_results.json` | Stored simulation output in JSON format |
-| `simulation.txt` | Text output from simulation runs |
-| `convergence.png` | Network-size convergence plot |
-| `overhead.png` | Network-size overhead plot |
-| `convergence_20_by_fanout.png` | Convergence plot for different fanout values |
-| `convergence_20_by_ttl.png` | Convergence plot for different TTL values |
-| `overhead_20_by_fanout.png` | Overhead plot for different fanout values |
-| `overhead_20_by_ttl.png` | Overhead plot for different TTL values |
-| `CN_Project_402105665_402170913_Final.pdf` | Full project report |
+The full project report is available in:
+
+```text
+docs/report.pdf
+```
+
+## File Guide
+
+| Path                                         | Purpose                                                                |
+| -------------------------------------------- | ---------------------------------------------------------------------- |
+| `src/node.py`                                | Main peer implementation, UDP socket handling, protocol logic, and CLI |
+| `scripts/simulate.py`                        | Starts local node processes and measures convergence and overhead      |
+| `scripts/plot_simulation_results.py`         | Generates plots from saved simulation results                          |
+| `scripts/test.py`                            | Test script for validating protocol behavior                           |
+| `requirements.txt`                           | Optional dependencies for plotting and analysis                        |
+| `results/simulation_results.json`            | Stored simulation output in JSON format                                |
+| `results/simulation.txt`                     | Text output from simulation runs                                       |
+| `results/plots/convergence.png`              | Network-size convergence plot                                          |
+| `results/plots/overhead.png`                 | Network-size overhead plot                                             |
+| `results/plots/convergence_20_by_fanout.png` | Convergence plot for different fanout values                           |
+| `results/plots/convergence_20_by_ttl.png`    | Convergence plot for different TTL values                              |
+| `results/plots/overhead_20_by_fanout.png`    | Overhead plot for different fanout values                              |
+| `results/plots/overhead_20_by_ttl.png`       | Overhead plot for different TTL values                                 |
+| `docs/report.pdf`                            | Full project report                                                    |
 
 ## Known Limitations
 
-- The simulation runs locally and does not fully model real Internet latency.
-- Packet loss is not deeply simulated even though the protocol uses UDP.
-- The current implementation is intended for experimentation, not production
+* The simulation runs locally and does not fully model real Internet latency.
+* Packet loss is not deeply simulated even though the protocol uses UDP.
+* The current implementation is intended for experimentation, not production
   deployment.
-- The seen-message set and message store need cleanup policies for long-running
+* The seen-message set and message store need cleanup policies for long-running
   networks.
-- Proof-of-Work is basic and does not replace authentication.
-- Messages are not encrypted or digitally signed.
-- Peer trust and reputation are not implemented.
-- The protocol does not yet adapt fanout or TTL automatically based on network
+* Proof-of-Work is basic and does not replace authentication.
+* Messages are not encrypted or digitally signed.
+* Peer trust and reputation are not implemented.
+* The protocol does not yet adapt fanout or TTL automatically based on network
   conditions.
 
 ## Possible Improvements
 
-- Add digital signatures for message authenticity.
-- Add encryption for private communication.
-- Add configurable packet loss, delay, and churn to the simulator.
-- Implement LRU cleanup for the seen-message set.
-- Add expiration for stored messages.
-- Add adaptive fanout and TTL selection.
-- Add peer reputation or scoring.
-- Support multi-machine deployment instead of localhost-only experiments.
-- Add structured logging and better experiment reports.
-- Add a live visualization dashboard for network topology and propagation.
+* Add digital signatures for message authenticity.
+* Add encryption for private communication.
+* Add configurable packet loss, delay, and churn to the simulator.
+* Implement LRU cleanup for the seen-message set.
+* Add expiration for stored messages.
+* Add adaptive fanout and TTL selection.
+* Add peer reputation or scoring.
+* Support multi-machine deployment instead of localhost-only experiments.
+* Add structured logging and better experiment reports.
+* Add a live visualization dashboard for network topology and propagation.
 
 ## Contributors
 
