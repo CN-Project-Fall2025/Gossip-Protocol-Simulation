@@ -1,0 +1,22 @@
+# Gossip Protocol - Python Dependencies
+# 
+# This project uses only Python standard library modules.
+# No external dependencies are required.
+#
+# Required Python version: 3.7 or higher
+#
+# Standard library modules used:
+# - socket (UDP networking)
+# - json (message serialization)
+# - uuid (unique identifiers)
+# - time (timestamps and delays)
+# - random (peer selection)
+# - threading (concurrency)
+# - hashlib (Proof-of-Work)
+# - argparse (CLI arguments)
+# - subprocess (simulation)
+# - statistics (analysis)
+# - dataclasses (data structures)
+
+# No external packages needed - all functionality uses standard library!
+

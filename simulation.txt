@@ -1,0 +1,614 @@
+
+======================================================================
+GOSSIP PROTOCOL SIMULATION - PHASE 3.3.4 IMPLEMENTATION
+======================================================================
+
+Specification:
+  Network Sizes: N ∈ {10, 20, 50}
+  Runs per Size: 5+
+  Metrics: Convergence Time (95% coverage) and Message Overhead
+  Parameters: fanout, ttl variations
+======================================================================
+
+======================================================================
+Configuration 1/7: N=10, fanout=3, ttl=10
+======================================================================
+
+[1/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=10, fanout=3, ttl=10, seed=39378, run=1
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 26000...
+[2] Bootstrapping 9 nodes...
+[3] Stabilizing network (5.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (10/10) at 12.10s
+[✓] Convergence Time: 11.61 seconds
+[✓] Message Overhead: 2109 messages
+[✓] Nodes Reached: 10/10 (100.0%)
+[2/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=10, fanout=3, ttl=10, seed=47275, run=2
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 43000...
+[2] Bootstrapping 9 nodes...
+[3] Stabilizing network (5.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (10/10) at 0.50s
+[✓] Convergence Time: 0.00 seconds
+[✓] Message Overhead: 605 messages
+[✓] Nodes Reached: 10/10 (100.0%)
+[3/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=10, fanout=3, ttl=10, seed=87692, run=3
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 20000...
+[2] Bootstrapping 9 nodes...
+[3] Stabilizing network (5.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (10/10) at 29.67s
+[✓] Convergence Time: 29.61 seconds
+[✓] Message Overhead: 4407 messages
+[✓] Nodes Reached: 10/10 (100.0%)
+[4/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=10, fanout=3, ttl=10, seed=75025, run=4
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 33000...
+[2] Bootstrapping 9 nodes...
+[3] Stabilizing network (5.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.2s] 9/10 nodes converged (90.0%)
+   [Status: 60.4s] 9/10 nodes converged (90.0%)
+   [Status: 90.6s] 9/10 nodes converged (90.0%)
+   [TIMEOUT] 2-minute limit reached. 9/10 converged (90.0%)
+[✓] Convergence Time: 23.62 seconds
+[✓] Message Overhead: 14403 messages
+[✓] Nodes Reached: 9/10 (90.0%)
+[5/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=10, fanout=3, ttl=10, seed=35369, run=5
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 17000...
+[2] Bootstrapping 9 nodes...
+[3] Stabilizing network (5.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.2s] 9/10 nodes converged (90.0%)
+   ✓ 95% convergence reached (10/10) at 33.75s
+[✓] Convergence Time: 33.65 seconds
+[✓] Message Overhead: 4941 messages
+[✓] Nodes Reached: 10/10 (100.0%)
+
+======================================================================
+Configuration 2/7: N=20, fanout=4, ttl=10
+======================================================================
+
+[6/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=4, ttl=10, seed=79688, run=1
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 16000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.3s] 17/20 nodes converged (85.0%)
+   [Status: 60.5s] 18/20 nodes converged (90.0%)
+   [Status: 90.8s] 18/20 nodes converged (90.0%)
+   [TIMEOUT] 2-minute limit reached. 18/20 converged (90.0%)
+[✓] Convergence Time: 48.95 seconds
+[✓] Message Overhead: 64360 messages
+[✓] Nodes Reached: 18/20 (90.0%)
+[7/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=4, ttl=10, seed=91021, run=2
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 29000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (19/20) at 0.51s
+[✓] Convergence Time: 0.00 seconds
+[✓] Message Overhead: 6345 messages
+[✓] Nodes Reached: 19/20 (95.0%)
+[8/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=4, ttl=10, seed=91665, run=3
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 33000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (19/20) at 1.01s
+[✓] Convergence Time: 0.78 seconds
+[✓] Message Overhead: 6668 messages
+[✓] Nodes Reached: 19/20 (95.0%)
+[9/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=4, ttl=10, seed=6858, run=4
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 26000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.3s] 18/20 nodes converged (90.0%)
+   [Status: 60.5s] 18/20 nodes converged (90.0%)
+   [Status: 90.8s] 18/20 nodes converged (90.0%)
+   [TIMEOUT] 2-minute limit reached. 18/20 converged (90.0%)
+[✓] Convergence Time: 4.96 seconds
+[✓] Message Overhead: 63232 messages
+[✓] Nodes Reached: 18/20 (90.0%)
+[10/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=4, ttl=10, seed=19553, run=5
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 41000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.3s] 18/20 nodes converged (90.0%)
+   [Status: 60.5s] 18/20 nodes converged (90.0%)
+   [Status: 90.8s] 18/20 nodes converged (90.0%)
+   [TIMEOUT] 2-minute limit reached. 18/20 converged (90.0%)
+[✓] Convergence Time: 9.56 seconds
+[✓] Message Overhead: 60610 messages
+[✓] Nodes Reached: 18/20 (90.0%)
+
+======================================================================
+Configuration 3/7: N=50, fanout=7, ttl=12
+======================================================================
+
+[11/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=50, fanout=7, ttl=12, seed=30463, run=1
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 31000...
+[2] Bootstrapping 49 nodes...
+[3] Stabilizing network (20.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.3s] 47/50 nodes converged (94.0%)
+   [Status: 60.7s] 47/50 nodes converged (94.0%)
+   ✓ 95% convergence reached (48/50) at 61.26s
+[✓] Convergence Time: 60.92 seconds
+[✓] Message Overhead: 253466 messages
+[✓] Nodes Reached: 48/50 (96.0%)
+[12/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=50, fanout=7, ttl=12, seed=30297, run=2
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 25000...
+[2] Bootstrapping 49 nodes...
+[3] Stabilizing network (20.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.4s] 47/50 nodes converged (94.0%)
+   ✓ 95% convergence reached (49/50) at 51.50s
+[✓] Convergence Time: 51.10 seconds
+[✓] Message Overhead: 220823 messages
+[✓] Nodes Reached: 49/50 (98.0%)
+[13/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=50, fanout=7, ttl=12, seed=84879, run=3
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 47000...
+[2] Bootstrapping 49 nodes...
+[3] Stabilizing network (20.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.4s] 46/50 nodes converged (92.0%)
+   [Status: 60.8s] 47/50 nodes converged (94.0%)
+   [Status: 91.2s] 47/50 nodes converged (94.0%)
+   [TIMEOUT] 2-minute limit reached. 47/50 converged (94.0%)
+[✓] Convergence Time: 52.78 seconds
+[✓] Message Overhead: 438828 messages
+[✓] Nodes Reached: 47/50 (94.0%)
+[14/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=50, fanout=7, ttl=12, seed=17956, run=4
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 44000...
+[2] Bootstrapping 49 nodes...
+[3] Stabilizing network (20.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (48/50) at 4.64s
+[✓] Convergence Time: 4.17 seconds
+[✓] Message Overhead: 83231 messages
+[✓] Nodes Reached: 48/50 (96.0%)
+[15/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=50, fanout=7, ttl=12, seed=22670, run=5
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 38000...
+[2] Bootstrapping 49 nodes...
+[3] Stabilizing network (20.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.2s] 47/50 nodes converged (94.0%)
+   ✓ 95% convergence reached (48/50) at 34.89s
+[✓] Convergence Time: 34.87 seconds
+[✓] Message Overhead: 176623 messages
+[✓] Nodes Reached: 48/50 (96.0%)
+
+======================================================================
+Configuration 4/7: N=20, fanout=2, ttl=10
+======================================================================
+
+[16/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=2, ttl=10, seed=55902, run=1
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 30000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.0s] 18/20 nodes converged (90.0%)
+   [Status: 60.5s] 18/20 nodes converged (90.0%)
+   [Status: 90.5s] 18/20 nodes converged (90.0%)
+   [TIMEOUT] 2-minute limit reached. 18/20 converged (90.0%)
+[✓] Convergence Time: 10.95 seconds
+[✓] Message Overhead: 46621 messages
+[✓] Nodes Reached: 18/20 (90.0%)
+[17/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=2, ttl=10, seed=82985, run=2
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 33000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.3s] 17/20 nodes converged (85.0%)
+   [Status: 60.6s] 18/20 nodes converged (90.0%)
+   [Status: 90.9s] 18/20 nodes converged (90.0%)
+   [TIMEOUT] 2-minute limit reached. 18/20 converged (90.0%)
+[✓] Convergence Time: 54.74 seconds
+[✓] Message Overhead: 49957 messages
+[✓] Nodes Reached: 18/20 (90.0%)
+[18/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=2, ttl=10, seed=52755, run=3
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 43000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.4s] 18/20 nodes converged (90.0%)
+   [Status: 60.7s] 18/20 nodes converged (90.0%)
+   [Status: 91.1s] 18/20 nodes converged (90.0%)
+   [TIMEOUT] 2-minute limit reached. 18/20 converged (90.0%)
+[✓] Convergence Time: 10.77 seconds
+[✓] Message Overhead: 51720 messages
+[✓] Nodes Reached: 18/20 (90.0%)
+[19/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=2, ttl=10, seed=8798, run=4
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 46000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (19/20) at 1.01s
+[✓] Convergence Time: 0.77 seconds
+[✓] Message Overhead: 6641 messages
+[✓] Nodes Reached: 19/20 (95.0%)
+[20/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=2, ttl=10, seed=5594, run=5
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 42000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.3s] 17/20 nodes converged (85.0%)
+   ✓ 95% convergence reached (19/20) at 48.98s
+[✓] Convergence Time: 48.84 seconds
+[✓] Message Overhead: 24604 messages
+[✓] Nodes Reached: 19/20 (95.0%)
+
+======================================================================
+Configuration 5/7: N=20, fanout=6, ttl=10
+======================================================================
+
+[21/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=6, ttl=10, seed=97001, run=1
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 9000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (20/20) at 13.62s
+[✓] Convergence Time: 13.58 seconds
+[✓] Message Overhead: 13449 messages
+[✓] Nodes Reached: 20/20 (100.0%)
+[22/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=6, ttl=10, seed=48888, run=2
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 16000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (20/20) at 9.58s
+[✓] Convergence Time: 9.56 seconds
+[✓] Message Overhead: 11305 messages
+[✓] Nodes Reached: 20/20 (100.0%)
+[23/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=6, ttl=10, seed=93569, run=3
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 17000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (19/20) at 19.67s
+[✓] Convergence Time: 19.57 seconds
+[✓] Message Overhead: 16688 messages
+[✓] Nodes Reached: 19/20 (95.0%)
+[24/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=6, ttl=10, seed=53201, run=4
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 9000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (19/20) at 5.58s
+[✓] Convergence Time: 5.55 seconds
+[✓] Message Overhead: 8979 messages
+[✓] Nodes Reached: 19/20 (95.0%)
+[25/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=6, ttl=10, seed=94530, run=5
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 18000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (19/20) at 0.51s
+[✓] Convergence Time: 0.00 seconds
+[✓] Message Overhead: 6366 messages
+[✓] Nodes Reached: 19/20 (95.0%)
+
+======================================================================
+Configuration 6/7: N=20, fanout=4, ttl=7
+======================================================================
+
+[26/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=4, ttl=7, seed=47143, run=1
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 31000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (19/20) at 7.06s
+[✓] Convergence Time: 6.89 seconds
+[✓] Message Overhead: 9805 messages
+[✓] Nodes Reached: 19/20 (95.0%)
+[27/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=4, ttl=7, seed=51492, run=2
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 20000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (19/20) at 23.29s
+[✓] Convergence Time: 22.91 seconds
+[✓] Message Overhead: 18296 messages
+[✓] Nodes Reached: 19/20 (95.0%)
+[28/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=4, ttl=7, seed=17377, run=3
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 25000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (19/20) at 23.79s
+[✓] Convergence Time: 23.59 seconds
+[✓] Message Overhead: 17384 messages
+[✓] Nodes Reached: 19/20 (95.0%)
+[29/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=4, ttl=7, seed=28011, run=4
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 19000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (19/20) at 19.22s
+[✓] Convergence Time: 18.91 seconds
+[✓] Message Overhead: 16027 messages
+[✓] Nodes Reached: 19/20 (95.0%)
+[30/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=4, ttl=7, seed=25452, run=5
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 20000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.3s] 18/20 nodes converged (90.0%)
+   [Status: 60.6s] 18/20 nodes converged (90.0%)
+   [Status: 90.9s] 18/20 nodes converged (90.0%)
+   [TIMEOUT] 2-minute limit reached. 18/20 converged (90.0%)
+[✓] Convergence Time: 8.77 seconds
+[✓] Message Overhead: 62248 messages
+[✓] Nodes Reached: 18/20 (90.0%)
+
+======================================================================
+Configuration 7/7: N=20, fanout=4, ttl=13
+======================================================================
+
+[31/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=4, ttl=13, seed=52640, run=1
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 8000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.3s] 18/20 nodes converged (90.0%)
+   [Status: 60.6s] 18/20 nodes converged (90.0%)
+   [Status: 90.8s] 18/20 nodes converged (90.0%)
+   [TIMEOUT] 2-minute limit reached. 18/20 converged (90.0%)
+[✓] Convergence Time: 9.57 seconds
+[✓] Message Overhead: 60504 messages
+[✓] Nodes Reached: 18/20 (90.0%)
+[32/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=4, ttl=13, seed=38446, run=2
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 14000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (19/20) at 27.23s
+[✓] Convergence Time: 26.90 seconds
+[✓] Message Overhead: 20046 messages
+[✓] Nodes Reached: 19/20 (95.0%)
+[33/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=4, ttl=13, seed=40830, run=3
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 38000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.3s] 17/20 nodes converged (85.0%)
+   [Status: 60.5s] 17/20 nodes converged (85.0%)
+   [Status: 90.8s] 17/20 nodes converged (85.0%)
+   [TIMEOUT] 2-minute limit reached. 17/20 converged (85.0%)
+[✓] Convergence Time: 13.57 seconds
+[✓] Message Overhead: 66655 messages
+[✓] Nodes Reached: 17/20 (85.0%)
+[34/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=4, ttl=13, seed=94186, run=4
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 34000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   ✓ 95% convergence reached (19/20) at 0.51s
+[✓] Convergence Time: 0.44 seconds
+[✓] Message Overhead: 6310 messages
+[✓] Nodes Reached: 19/20 (95.0%)
+[35/35] 
+──────────────────────────────────────────────────────────────────────
+Simulation: N=20, fanout=4, ttl=13, seed=25592, run=5
+──────────────────────────────────────────────────────────────────────
+[1] Starting seed node on port 40000...
+[2] Bootstrapping 19 nodes...
+[3] Stabilizing network (12.0s)...
+[3.2] Peer counts and addresses after stabilization:
+[3.5] Injecting test GOSSIP message...
+[4] Collecting logs (runs until 95% coverage)...
+   [Status: 30.3s] 18/20 nodes converged (90.0%)
+   [Status: 60.6s] 18/20 nodes converged (90.0%)
+   [Status: 90.8s] 18/20 nodes converged (90.0%)
+   [TIMEOUT] 2-minute limit reached. 18/20 converged (90.0%)
+[✓] Convergence Time: 1.55 seconds
+[✓] Message Overhead: 66306 messages
+[✓] Nodes Reached: 18/20 (90.0%)
+
+
+======================================================================
+RESULTS SUMMARY
+======================================================================
+
+[Convergence Time Statistics] (seconds)
+──────────────────────────────────────────────────────────────────────
+N   | Mean   | StdDev | Min    | Max    | Samples
+──────────────────────────────────────────────────────────────────────
+ 10 |  19.70 |  13.80 |   0.00 |  33.65 |       5
+ 20 |  14.87 |  15.63 |   0.00 |  54.74 |      25
+ 50 |  40.77 |  22.54 |   4.17 |  60.92 |       5
+
+[Message Overhead Statistics] (count)
+──────────────────────────────────────────────────────────────────────
+N   | Mean    | StdDev | Min     | Max     | Samples
+──────────────────────────────────────────────────────────────────────
+ 10 |    5293 |   5386 |     605 |   14403 |       5
+ 20 |   31245 |  24153 |    6310 |   66655 |      25
+ 50 |  234594 | 130890 |   83231 |  438828 |       5
+
+[Nodes Reached] (%)
+──────────────────────────────────────────────────────────────────────
+N   | Mean   | Min    | Max
+──────────────────────────────────────────────────────────────────────
+ 10 |   98.0 |   90.0 |  100.0
+ 20 |   93.2 |   85.0 |  100.0
+ 50 |   96.0 |   94.0 |   98.0
+
+[!] matplotlib not installed - skipping charts
+    Install: pip install matplotlib
+
+[✓] Simulation complete!
+[✓] Results: 35 experiments
+[✓] File: simulation_results.json
