@@ -466,7 +466,3 @@ Student project team:
 This project was implemented for a Computer Networks course at Sharif University
 of Technology. The goal was to design, implement, and evaluate a gossip-based
 protocol for decentralized message dissemination in a peer-to-peer network.
-
-## License
-
-This project is provided for educational purposes.
